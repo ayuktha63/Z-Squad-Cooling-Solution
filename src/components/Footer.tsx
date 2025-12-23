@@ -1,4 +1,12 @@
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -26,9 +34,16 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-slate-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    // IMPORTANT: relative + overflow-hidden blocks diagonal background bleed
+    <footer className="relative bg-slate-900 text-white overflow-hidden">
+
+      {/* HARD BACKGROUND LAYER – blocks global gradients/patterns */}
+      <div className="absolute inset-0 bg-slate-900 z-0"></div>
+
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
           {/* Company Info */}
           <div>
             <h3 className="mb-4">Z Squad Cooling Solutions</h3>
@@ -93,12 +108,16 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <a href="tel:+918089596969" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                    08089596969
+                  <a
+                    href="tel:+918089596969"
+                    className="text-slate-400 hover:text-cyan-400 transition-colors"
+                  >
+                    08089 596 969
                   </a>
                   <p className="text-slate-500">24/7 Emergency</p>
                 </div>
               </li>
+
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                 <a
@@ -108,12 +127,16 @@ export function Footer() {
                   info@zsquadcooling.com
                 </a>
               </li>
+
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-400">
-                  Kent Hail Garden A block, 15A4,<br />
-                  Stadium Link Rd, Kathrikadavu,<br />
-                  Palarivattom, Kochi, Ernakulam,<br />
+                  Kent Hail Garden A block, 15A4,
+                  <br />
+                  Stadium Link Rd, Kathrikadavu,
+                  <br />
+                  Palarivattom, Kochi, Ernakulam,
+                  <br />
                   Kerala 682025
                 </span>
               </li>
@@ -127,20 +150,20 @@ export function Footer() {
             <p className="text-slate-400">
               © {currentYear} Z Squad Cooling Solutions. All rights reserved.
             </p>
-            <div className="flex gap-6">
+            <div className="flex gap-6 flex-wrap justify-center">
               <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Privacy Policy
               </a>
               <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Terms of Service
               </a>
-              <a 
-                href="https://www.orqueinnovations.com" 
-                target="_blank" 
+              <a
+                href="https://www.orqueinnovations.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-cyan-400 transition-colors"
               >
-                Designed by Orque Innovations LLP
+                Crafted by Orque Innovations LLP
               </a>
             </div>
           </div>
