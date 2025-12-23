@@ -35,19 +35,22 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className={`transition-colors ${
-                isScrolled ? 'text-slate-900' : 'text-white'
-              }`}
-            >
-              <h2 className="text-2xl">Z Squad Cooling Solutions</h2>
-            </button>
-          </div>
 
-          {/* Desktop Navigation */}
+          {/* LOGO */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center"
+          >
+            <img
+              src="/Group.svg"   // ✅ make sure this path is correct
+              alt="Z Squad Cooling Solutions"
+              className={`h-10 w-auto transition-all ${
+                isScrolled ? 'filter-none' : 'brightness-0 invert'
+              }`}
+            />
+          </button>
+
+          {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button
@@ -60,9 +63,10 @@ export function Navbar() {
                 {link.label}
               </button>
             ))}
+
             <Button
               size="sm"
-              onClick={() => window.location.href = 'tel:+918089596969'}
+              onClick={() => (window.location.href = 'tel:+918089596969')}
               className={`${
                 isScrolled
                   ? 'bg-cyan-500 hover:bg-cyan-600 text-white'
@@ -74,7 +78,7 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* MOBILE MENU BUTTON */}
           <button
             className={`md:hidden transition-colors ${
               isScrolled ? 'text-slate-900' : 'text-white'
@@ -89,7 +93,7 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* MOBILE MENU */}
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 bg-white rounded-lg shadow-lg">
             <div className="flex flex-col gap-3 p-4">
@@ -102,9 +106,10 @@ export function Navbar() {
                   {link.label}
                 </button>
               ))}
+
               <Button
                 size="sm"
-                onClick={() => window.location.href = 'tel:+918089596969'}
+                onClick={() => (window.location.href = 'tel:+918089596969')}
                 className="bg-cyan-500 hover:bg-cyan-600 text-white w-full"
               >
                 <Phone className="mr-2 h-4 w-4" />

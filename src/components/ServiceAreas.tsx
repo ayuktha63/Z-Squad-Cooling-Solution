@@ -21,17 +21,11 @@ export function ServiceAreas() {
   ];
 
   return (
-    // IMPORTANT: relative + overflow-hidden blocks diagonal background bleed
     <section className="relative py-20 bg-slate-900 text-white overflow-hidden">
-
-      {/* HARD BACKGROUND LAYER – blocks global patterns */}
-      <div className="absolute inset-0 bg-slate-900 z-0"></div>
-
-      {/* CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          {/* LEFT CONTENT */}
+          
+          {/* Left Content */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <MapPin className="h-8 w-8 text-cyan-400" />
@@ -45,7 +39,7 @@ export function ServiceAreas() {
               30 km radius from Kaloor. Our technicians ensure fast response and reliable service.
             </p>
 
-            {/* AREA LIST */}
+            {/* Areas List */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {areas.map((area, index) => (
                 <div key={index} className="flex items-center gap-3">
@@ -55,7 +49,7 @@ export function ServiceAreas() {
               ))}
             </div>
 
-            {/* INFO BOX */}
+            {/* Highlight Box */}
             <div className="p-6 bg-cyan-500/10 border border-cyan-500/20 rounded-lg">
               <p className="text-cyan-300">
                 <strong>30 km service radius from Kaloor.</strong>{' '}
@@ -64,11 +58,12 @@ export function ServiceAreas() {
             </div>
           </div>
 
-          {/* RIGHT CONTENT – GOOGLE MAP */}
+          {/* Right Content - Google Map */}
           <div className="rounded-xl overflow-hidden h-96 border border-slate-700 bg-slate-800">
             <iframe
               src="https://www.google.com/maps?q=Z+Squad+Cooling+Solutions+Kochi&output=embed"
-              className="w-full h-full scale-[1.01]"
+              width="100%"
+              height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
