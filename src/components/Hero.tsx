@@ -28,7 +28,13 @@ export function Hero() {
       <SnowEffect count={32} />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div
+  className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
+  style={{
+    marginTop: window.innerWidth < 640 ? '96px' : '0px',
+  }}
+>
+
         <div className="max-w-4xl mx-auto lg:mx-0 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 border border-cyan-400/30 rounded-full mb-6 backdrop-blur-sm">
             <Snowflake className="h-4 w-4 text-cyan-400" />

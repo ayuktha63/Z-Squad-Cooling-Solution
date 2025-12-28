@@ -697,7 +697,7 @@
   }
 
   .h-screen {
-    height: 100vh;
+    /* height: 100vh; */
   }
 
   .min-h-16 {
@@ -709,7 +709,7 @@
   }
 
   .min-h-screen {
-    min-height: 100vh;
+    /* min-height: 100vh; */
   }
 
   .w-1 {
