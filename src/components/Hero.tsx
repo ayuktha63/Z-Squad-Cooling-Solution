@@ -12,7 +12,7 @@ export function Hero() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+        src="/logo.png"
           alt="Professional AC Installation"
           className="w-full h-full object-cover scale-105"
         />
