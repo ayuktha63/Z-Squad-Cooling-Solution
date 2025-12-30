@@ -1,18 +1,18 @@
 export function Gallery() {
   const galleryImages = [
     {
-      url: 'https://images.unsplash.com/photo-1760904730891-8a63cde68d3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tZXJjaWFsJTIwaHZhYyUyMGVxdWlwbWVudHxlbnwxfHx8fDE3NjU2MTA2NDl8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      url: 'img1.jpeg',
       title: 'HVAC Equipment',
       category: 'Equipment',
     },
     {
-      url: 'https://images.unsplash.com/photo-1637327534911-ee8057d51aec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob21lJTIwYWlyJTIwY29uZGl0aW9uZXJ8ZW58MXx8fHwxNzY1NjEwNjUwfDA&ixlib=rb-4.1.0&q=80&w=1080',
+      url: 'img3.jpeg',
       title: 'Residential AC Unit',
       category: 'Installation',
     },
 
     {
-      url: 'https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaXIlMjBjb25kaXRpb25pbmclMjBpbnN0YWxsYXRpb24lMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzY1NjEwNjQ5fDA&ixlib=rb-4.1.0&q=80&w=1080',
+      url: '/img2.jpeg',
       title: 'Maintainance Service',
       category: 'Maintenance',
     },
