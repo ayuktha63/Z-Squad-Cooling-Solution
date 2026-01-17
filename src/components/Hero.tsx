@@ -11,12 +11,17 @@ export function Hero() {
     <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/logo.png"
-          alt="Professional AC Installation"
+        <video
           className="w-full h-full object-cover scale-105"
+          src="/sample.mp4"       // put your video in public/hero-bg.mp4
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/98 via-slate-900/90 to-cyan-900/80" />
+        {/* Overlay stays the same */}
+        <div className="absolute inset-0 bg-gradient-to-br  from-slate-900/98" />
 
         <div
           className="absolute top-20 right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"
