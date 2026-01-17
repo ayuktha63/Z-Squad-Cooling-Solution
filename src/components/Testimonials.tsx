@@ -4,47 +4,27 @@ import { Card, CardContent } from './ui/card';
 export function Testimonials() {
   const testimonials = [
     {
-      name: 'Sarah Mitchell',
+      name: 'Shiril Sudheer',
       role: 'Homeowner',
       content:
-        'Z Squad installed our new AC system last summer and the service was exceptional. The technicians were professional, clean, and explained everything clearly. Our home has never been more comfortable!',
+        'Best ac servicing in kochi. The staffs were so punctual and perfect with the work.',
       rating: 5,
     },
     {
-      name: 'Michael Chen',
+      name: 'Sumeesh K S',
       role: 'Business Owner',
       content:
-        'We use Z Squad for all our office HVAC maintenance. They are reliable, responsive, and always go above and beyond. The 24/7 emergency service has been a lifesaver for our business.',
+        'Good AC service, fast response, and professional work.',
       rating: 5,
     },
     {
-      name: 'Jennifer Rodriguez',
+      name: 'Anandhu A',
       role: 'Property Manager',
       content:
-        'Managing multiple properties, I need a cooling service I can trust. Z Squad has been our partner for 5 years. Their maintenance plans keep our systems running efficiently and tenants happy.',
+        'Best Split Ac serving in kaloor',
       rating: 5,
     },
-    {
-      name: 'David Thompson',
-      role: 'Homeowner',
-      content:
-        'After our AC broke down during a heatwave, Z Squad had a technician at our door within 2 hours. They diagnosed and fixed the issue quickly. Highly recommend their emergency service!',
-      rating: 5,
-    },
-    {
-      name: 'Lisa Anderson',
-      role: 'Restaurant Owner',
-      content:
-        'Our restaurant depends on consistent cooling. Z Squad designed and installed a custom HVAC solution that perfectly meets our needs. Professional service from start to finish.',
-      rating: 5,
-    },
-    {
-      name: 'Robert Williams',
-      role: 'Homeowner',
-      content:
-        'Best HVAC company in the area! Fair pricing, honest recommendations, and quality work. They helped us choose an energy-efficient system that has already lowered our bills.',
-      rating: 5,
-    },
+
   ];
 
   return (

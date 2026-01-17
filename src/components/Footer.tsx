@@ -27,10 +27,10 @@ export function Footer() {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://www.facebook.com/people/Z-squad-Cooling-Solutions/61579961562796/?sk=photos', label: 'Facebook' },
+    // { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Instagram, href: 'https://www.instagram.com/z_squad_coolingsolutions/', label: 'Instagram' },
+    // { icon: Linkedin, href: '#', label: 'LinkedIn' },
   ];
 
   return (
@@ -151,12 +151,12 @@ export function Footer() {
               © {currentYear} Z Squad Cooling Solutions. All rights reserved.
             </p>
             <div className="flex gap-6 flex-wrap justify-center">
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
+              {/* <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Privacy Policy
               </a>
               <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Terms of Service
-              </a>
+              </a> */}
               <a
                 href="https://www.orqueinnovations.com"
                 target="_blank"

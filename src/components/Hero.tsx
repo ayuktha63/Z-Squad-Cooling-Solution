@@ -63,7 +63,7 @@ export function Hero() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
 
-            <Button
+            {/* <Button
               size="lg"
               variant="outline"
               className="bg-white hover:bg-slate-50 text-slate-900 border-2 border-white px-8 py-7 text-lg shadow-xl"
@@ -71,7 +71,7 @@ export function Hero() {
             >
               <Phone className="mr-2 h-5 w-5" />
               08089596969
-            </Button>
+            </Button> */}
           </div>
 
           <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
