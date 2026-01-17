@@ -69,7 +69,7 @@ export function Navbar() {
               onClick={() => (window.location.href = 'tel:+918089596969')}
               className={`${
                 isScrolled
-                  ? 'bg-cyan-500 hover:bg-cyan-600 text-white'
+                  ? 'bg-cyan-500 hover:bg-slate-900 text-white'
                   : 'bg-white text-slate-900 hover:bg-slate-100'
               }`}
             >

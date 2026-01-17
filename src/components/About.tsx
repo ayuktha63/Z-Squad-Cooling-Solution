@@ -49,7 +49,7 @@ export function About() {
                 className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-100 rounded-full mb-4">
-                  <Icon className="h-8 w-8 text-cyan-600" />
+                  <Icon className="h-8 w-8 text-slate-700" />
                 </div>
                 <h3 className="text-slate-900 mb-2">{feature.title}</h3>
                 <p className="text-slate-600">{feature.description}</p>

@@ -44,7 +44,8 @@ export function Hero() {
           <h1 className="text-white mb-6 text-4xl sm:text-5xl lg:text-7xl leading-tight">
             Professional AC Services
             <br />
-            <span className="text-cyan-400">You Can Trust</span>
+            <span className="text-brand-gradient">You Can Trust</span>
+
           </h1>
 
           <p className="text-slate-200 mb-10 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -76,21 +77,21 @@ export function Hero() {
           <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
             <div className="flex items-center gap-2 text-white/90">
               <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center">
-                <Clock className="h-5 w-5 text-cyan-400" />
+                <Clock className="h-5 w-5 text-brand-gradi0ent" />
               </div>
               <span>24/7 Emergency Service</span>
             </div>
 
             <div className="flex items-center gap-2 text-white/90">
               <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center">
-                <Shield className="h-5 w-5 text-cyan-400" />
+                <Shield className="h-5 w-5 text-brand-gradient0" />
               </div>
               <span>Certified Technicians</span>
             </div>
 
             <div className="flex items-center gap-2 text-white/90">
               <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center">
-                <Snowflake className="h-5 w-5 text-cyan-400" />
+                <Snowflake className="h-5 w-5 text-brand-gradie0nt" />
               </div>
               <span>15+ Years Experience</span>
             </div>

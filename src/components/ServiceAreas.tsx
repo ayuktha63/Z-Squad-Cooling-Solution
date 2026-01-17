@@ -64,18 +64,17 @@ export function ServiceAreas() {
             </div>
           </div>
 
-          {/* RIGHT CONTENT – GOOGLE MAP */}
-          <div className="rounded-xl overflow-hidden h-96 border border-slate-700 bg-slate-800">
-            <iframe
-              src="https://www.google.com/maps?q=Z+Squad+Cooling+Solutions+Kochi&output=embed"
-              className="w-full h-full scale-[1.01]"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Z Squad Cooling Solutions Location"
-            ></iframe>
-          </div>
+{/* RIGHT CONTENT – IMAGE */}
+<div className="rounded-xl overflow-hidden border w-full max-w-md mx-auto aspect-[16/9] sm:aspect-[4/3] lg:aspect-[16/9]">
+  <img
+    src="/Vector.svg"
+    alt="Z Squad Cooling Solutions location"
+    className="w-full h-full object-cover"
+    loading="lazy"
+  />
+</div>
+
+
 
         </div>
       </div>
