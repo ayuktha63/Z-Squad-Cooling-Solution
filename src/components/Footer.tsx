@@ -48,7 +48,7 @@ export function Footer() {
           <div>
             <h3 className="mb-4">Z Squad Cooling Solutions</h3>
             <p className="text-slate-400 mb-6">
-              Professional AC services you can trust. Serving Ernakulam for over 15 years.
+              Professional AC services you can trust. Serving Ernakulam with 24/7 support and certified technicians.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => {
