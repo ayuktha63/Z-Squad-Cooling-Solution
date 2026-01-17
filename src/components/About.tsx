@@ -1,26 +1,26 @@
-import { Award, Clock, Users, ThumbsUp } from 'lucide-react';
+import { Award, Clock, Users, ThumbsUp } from "lucide-react";
 
 export function About() {
   const features = [
     {
       icon: Award,
-      title: 'Certified Professionals',
-      description: 'Licensed and insured technicians with years of experience',
+      title: "Certified Professionals",
+      description: "Licensed and insured technicians with proven expertise",
     },
     {
       icon: Clock,
-      title: '24/7 Emergency Service',
-      description: 'Available round the clock for urgent AC servicing needs',
+      title: "24/7 Emergency Service",
+      description: "Available round the clock for urgent AC servicing needs",
     },
     {
       icon: Users,
-      title: 'Trusted Service',
-      description: 'Trusted by homeowners across Ernakulam',
+      title: "Trusted Service",
+      description: "Trusted by homeowners across Ernakulam",
     },
     {
       icon: ThumbsUp,
-      title: 'Satisfaction Guaranteed',
-      description: 'We stand behind our work with comprehensive warranties',
+      title: "Satisfaction Guaranteed",
+      description: "We stand behind our work with clear service assurance",
     },
   ];
 
@@ -29,13 +29,20 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-slate-900 mb-4 text-3xl sm:text-4xl">
+          <h2
+            className="text-slate-900 mb-4 text-3xl sm:text-4xl"
+            data-aos="fade-up"
+          >
             About Z Squad Cooling Solutions
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            With over 15 years of experience in the AC servicing industry, we deliver 
-            reliable, efficient solutions for residential properties across Ernakulam. Our commitment 
-            to quality service and customer satisfaction sets us apart.
+          <p
+            className="text-slate-600 max-w-2xl mx-auto text-lg"
+            data-aos="fade-up"
+            data-aos-delay="120"
+          >
+            Professional AC installation, repair, and maintenance for residential
+            properties across Ernakulam. Our focus is simple: quality workmanship,
+            transparent service, and reliable support.
           </p>
         </div>
 
@@ -47,6 +54,8 @@ export function About() {
               <div
                 key={index}
                 className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-100 rounded-full mb-4">
                   <Icon className="h-8 w-8 text-slate-700" />
