@@ -1,15 +1,27 @@
 import { ArrowRight, Snowflake, Shield, Clock } from "lucide-react";
 import { Button } from "./ui/button";
 import { SnowEffect } from "./SnowEffect";
-
+import { useEffect, useState } from "react";
 export function Hero() {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640); // Tailwind sm breakpoint
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-      {/* Background */}
+<section
+      className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
+      style={isMobile ? { paddingTop: "80px" } : undefined}   // or marginTop: "80px"
+    >
+
       <div className="absolute inset-0 z-0">
         <video
           className="w-full h-full object-cover scale-105"
@@ -21,7 +33,7 @@ export function Hero() {
           preload="auto"
         />
         {/* Overlay stays the same */}
-        <div className="absolute inset-0 bg-gradient-to-br  from-slate-900/98" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/98 via-slate-900/90 to-cyan-900/80" />
 
         <div
           className="absolute top-20 right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"
