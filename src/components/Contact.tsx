@@ -1,86 +1,138 @@
-import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Label } from './ui/label';
-import { toast } from 'sonner@2.0.3';
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Label } from "./ui/label";
+import { toast } from "sonner";
+
+type FormData = {
+  name: string;
+  phone: string;
+  email: string;
+  service: string;
+  message: string;
+};
+
+const EMAILJS_SERVICE_ID = "service_ubel6kp";
+const EMAILJS_TEMPLATE_ID = "template_16ijjkm";
+const EMAILJS_PUBLIC_KEY = "tBUpxJkvoAU3j2357";
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    service: '',
-    message: '',
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    phone: "",
+    email: "",
+    service: "",
+    message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSending, setIsSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Mock form submission
-    toast.success('Thank you! We will contact you shortly.');
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      service: '',
-      message: '',
-    });
+
+    if (isSending) return;
+
+    // minimal validation
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.service.trim()) {
+      toast.error("Please fill all required fields.");
+      return;
+    }
+
+    setIsSending(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          phone: formData.phone,
+          reply_to: formData.email?.trim() || "no-reply@zsquadcooling.com",
+          service: formData.service,
+          message: formData.message || "-",
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+
+      toast.success("Thank you! We will contact you shortly.");
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to send. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
-      content: '08089596969',
-      link: 'tel:+918089596969',
+      title: "Phone",
+      content: "08089596969",
+      link: "tel:+918089596969",
     },
     {
       icon: Mail,
-      title: 'Email',
-      content: 'info@zsquadcooling.com',
-      link: 'mailto:info@zsquadcooling.com',
+      title: "Email",
+      content: "info@zsquadcooling.com",
+      link: "mailto:info@zsquadcooling.com",
     },
     {
       icon: MapPin,
-      title: 'Address',
-      content: 'Palarivattom, Kochi, Ernakulam',
-      link: '#',
+      title: "Address",
+      content: "Palarivattom, Kochi, Ernakulam",
+      link: "#",
     },
     {
       icon: Clock,
-      title: 'Hours',
-      content: 'Mon-Fri: 8AM-6PM, 24/7 Emergency',
-      link: '#',
+      title: "Hours",
+      content: "24/7 Emergency Support",
+      link: "#",
     },
-  ];
+  ] as const;
 
   return (
     <section id="contact" className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-slate-900 mb-4 text-3xl sm:text-4xl">Get in Touch</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            Ready to experience professional cooling solutions? Contact us today for a free quote
+          <h2 className="text-slate-900 mb-4 text-3xl sm:text-4xl" data-aos="fade-up">
+            Get in Touch
+          </h2>
+          <p
+            className="text-slate-600 max-w-2xl mx-auto text-lg"
+            data-aos="fade-up"
+            data-aos-delay="120"
+          >
+            Ready to experience professional cooling solutions? Contact us today for a free quote.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <h3 className="text-slate-900 mb-6">Send Us a Message</h3>
+          <div className="bg-white p-8 rounded-xl shadow-sm" data-aos="fade-right">
+            <h3 className="text-slate-900 mb-6" data-aos="fade-up">
+              Send Us a Message
+            </h3>
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
+              <div data-aos="fade-up" data-aos-delay="80">
                 <Label htmlFor="name">Full Name *</Label>
                 <Input
                   id="name"
@@ -90,11 +142,15 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   className="mt-2"
-                  placeholder="John Doe"
+                  placeholder="Your name"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                data-aos="fade-up"
+                data-aos-delay="140"
+              >
                 <div>
                   <Label htmlFor="phone">Phone *</Label>
                   <Input
@@ -105,9 +161,10 @@ export function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="mt-2"
-                    placeholder="(123) 456-7890"
+                    placeholder="Enter phone number"
                   />
                 </div>
+
                 <div>
                   <Label htmlFor="email">Email</Label>
                   <Input
@@ -117,12 +174,12 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     className="mt-2"
-                    placeholder="john@example.com"
+                    placeholder="your@email.com"
                   />
                 </div>
               </div>
 
-              <div>
+              <div data-aos="fade-up" data-aos-delay="200">
                 <Label htmlFor="service">Service Required *</Label>
                 <select
                   id="service"
@@ -136,12 +193,12 @@ export function Contact() {
                   <option value="installation">AC Installation</option>
                   <option value="repair">AC Repair</option>
                   <option value="maintenance">Maintenance</option>
-                  <option value="hvac">HVAC Services</option>
+                  <option value="amc">AMC</option>
                   <option value="consultation">Consultation</option>
                 </select>
               </div>
 
-              <div>
+              <div data-aos="fade-up" data-aos-delay="260">
                 <Label htmlFor="message">Message</Label>
                 <Textarea
                   id="message"
@@ -154,9 +211,15 @@ export function Contact() {
                 />
               </div>
 
-              <Button type="submit" className="w-full bg-cyan-500 hover:bg-cyan-600 text-white">
+              <Button
+                type="submit"
+                disabled={isSending}
+                className="w-full bg-cyan-500 hover:bg-cyan-600 text-white disabled:opacity-60"
+                data-aos="zoom-in"
+                data-aos-delay="320"
+              >
                 <Send className="mr-2 h-4 w-4" />
-                Submit Enquiry
+                {isSending ? "Sending..." : "Submit Enquiry"}
               </Button>
             </form>
           </div>
@@ -172,6 +235,8 @@ export function Contact() {
                     key={index}
                     href={info.link}
                     className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 120}
                   >
                     <Icon className="h-6 w-6 text-cyan-500 mb-3" />
                     <h4 className="text-slate-900 mb-1">{info.title}</h4>
@@ -181,8 +246,12 @@ export function Contact() {
               })}
             </div>
 
-            {/* Map Placeholder */}
-            <div className="bg-slate-200 rounded-xl h-80 flex items-center justify-center overflow-hidden">
+            {/* Map */}
+            <div
+              className="bg-slate-200 rounded-xl h-80 flex items-center justify-center overflow-hidden"
+              data-aos="fade-left"
+              data-aos-delay="150"
+            >
               <iframe
                 src="https://www.google.com/maps?q=Z+Squad+Cooling+Solutions+Kochi&output=embed"
                 width="100%"
