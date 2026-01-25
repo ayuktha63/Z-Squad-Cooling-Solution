@@ -33,7 +33,7 @@ const [isMobile, setIsMobile] = useState(false);
           preload="auto"
         />
         {/* Overlay stays the same */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/98 via-slate-900/90 to-cyan-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/98 via-slate-700/90 to-cyan-700/80" />
 
         <div
           className="absolute top-20 right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"
