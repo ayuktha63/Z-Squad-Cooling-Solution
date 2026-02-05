@@ -12,6 +12,7 @@ import { Gallery } from "./components/Gallery";
 import { Testimonials } from "./components/Testimonials";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { ContactSidebar } from "./components/ContactSidebar";
 
 export default function App() {
   useEffect(() => {
@@ -35,6 +36,7 @@ export default function App() {
       <Contact />
       <Footer />
       <Toaster position="top-right" />
+      <ContactSidebar /> {/* <-- sidebar will now definitely appear */}
     </div>
   );
 }
