@@ -1,8 +1,8 @@
 import { CSSProperties } from "react";
-import { Phone, MessageSquare, Mail } from "lucide-react";
+import { AiOutlineWhatsApp } from "react-icons/ai"; // WhatsApp icon
+import { Phone, Mail } from "lucide-react";
 
 export function ContactSidebar() {
-  // TypeScript-safe inline styles
   const containerStyle: CSSProperties = {
     position: "fixed",
     top: "33%",
@@ -38,7 +38,7 @@ export function ContactSidebar() {
         onMouseEnter={e => (e.currentTarget.style.background = "#1ebe57")}
         onMouseLeave={e => (e.currentTarget.style.background = "#25D366")}
       >
-        <MessageSquare style={{ width: 24, height: 24 }} />
+        <AiOutlineWhatsApp size={24} color="white" />
       </a>
 
       {/* Phone */}
