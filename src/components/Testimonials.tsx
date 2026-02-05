@@ -61,28 +61,17 @@ export function Testimonials() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // default for large screens
+    slidesToShow: 1, // Show only 1 testimonial on all screen sizes
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
     arrows: true,
     responsive: [
       {
-        breakpoint: 1024, // tablets
+        breakpoint: 640, // On mobile, hide arrows for cleaner UI
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          arrows: true,
+          arrows: false,
           autoplaySpeed: 3000,
-        },
-      },
-      {
-        breakpoint: 640, // mobile
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false, // hide arrows on mobile
-          autoplaySpeed: 2000, // faster autoplay for small screens
         },
       },
     ],
@@ -111,7 +100,7 @@ export function Testimonials() {
         {/* Carousel */}
         <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="px-2 sm:px-4"> {/* smaller padding for mobile */}
+            <div key={index} className="px-4">
               <Card className="border-slate-200 hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 text-center">
                   <Quote className="h-8 w-8 text-cyan-500 mb-3 mx-auto" />
