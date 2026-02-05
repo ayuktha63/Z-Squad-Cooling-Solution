@@ -1,32 +1,96 @@
 import { Star, Quote } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export function Testimonials() {
   const testimonials = [
     {
-      name: "Shiril Sudheer",
-      role: "Homeowner",
+      name: "Muhammad Nasim",
       content:
-        "Best AC servicing in Kochi. The staff were punctual and the work was perfect.",
+        "I had a great experience with Z Squad Cooling Solution AC Service Team. The technicians were professional. Highly recommend to anyone looking for reliable and affordable AC service!",
       rating: 5,
     },
     {
-      name: "Sumeesh K S",
-      role: "Business Owner",
-      content: "Good AC service and professional work.",
+      name: "Misbha Muneer",
+      content:
+        "Had great experience with the service of Z Squad Cooling Solutions. One of the best AC servicing in Kochi.",
       rating: 5,
     },
     {
-      name: "Anandhu A",
-      role: "Property Manager",
-      content: "Best split AC servicing in Kaloor.",
+      name: "abhi",
+      content:
+        "Best AC service centre, staff was very professional and accurate with their work.",
+      rating: 5,
+    },
+    {
+      name: "Habeeb Rahman",
+      content: "Had great experience with Z Squad Cooling Solutions. Best in Kochi.",
+      rating: 5,
+    },
+    {
+      name: "Shiril Sudheer",
+      content:
+        "Best AC servicing in Kochi. The staffs were so punctual and perfect with the work.",
+      rating: 5,
+    },
+    {
+      name: "Reghunathan",
+      content: "Best AC servicing team in Kochi. Punctuality 👌👌",
+      rating: 5,
+    },
+    {
+      name: "Jisha Joji",
+      content: "Go for it, trustworthy team, best AC servicing in Kaloor.",
+      rating: 5,
+    },
+    {
+      name: "Alen Appolo",
+      content: "Good service, fast response, and professional work. Satisfied.",
+      rating: 5,
+    },
+    {
+      name: "Sumeesh KS",
+      content: "Good AC service, fast response, and professional work.",
       rating: 5,
     },
   ];
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // default for large screens
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024, // tablets
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: true,
+          autoplaySpeed: 3000,
+        },
+      },
+      {
+        breakpoint: 640, // mobile
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false, // hide arrows on mobile
+          autoplaySpeed: 2000, // faster autoplay for small screens
+        },
+      },
+    ],
+  };
+
   return (
     <section id="testimonials" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2
@@ -44,19 +108,14 @@ export function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Carousel */}
+        <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
-            <Card
-              key={index}
-              className="border-slate-200 hover:shadow-lg transition-shadow"
-              data-aos="fade-up"
-              data-aos-delay={index * 120}
-            >
-              <CardContent className="p-6">
-                <div className="mb-4">
-                  <Quote className="h-8 w-8 text-cyan-500 mb-3" />
-                  <div className="flex gap-1 mb-4">
+            <div key={index} className="px-2 sm:px-4"> {/* smaller padding for mobile */}
+              <Card className="border-slate-200 hover:shadow-lg transition-shadow">
+                <CardContent className="p-6 text-center">
+                  <Quote className="h-8 w-8 text-cyan-500 mb-3 mx-auto" />
+                  <div className="flex justify-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star
                         key={i}
@@ -64,19 +123,13 @@ export function Testimonials() {
                       />
                     ))}
                   </div>
-                  <p className="text-slate-700 italic mb-4">
-                    {testimonial.content}
-                  </p>
-                </div>
-
-                <div className="border-t border-slate-200 pt-4">
-                  <h4 className="text-slate-900">{testimonial.name}</h4>
-                  <p className="text-slate-500">{testimonial.role}</p>
-                </div>
-              </CardContent>
-            </Card>
+                  <p className="text-slate-700 italic mb-4">{testimonial.content}</p>
+                  <h4 className="text-slate-900 font-semibold">{testimonial.name}</h4>
+                </CardContent>
+              </Card>
+            </div>
           ))}
-        </div>
+        </Slider>
 
         {/* Trust Badges */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 pt-12 border-t border-slate-200">
